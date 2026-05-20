@@ -1,16 +1,11 @@
-<!-- markdownlint-disable MD041 MD034 -->
-[![Arduino CLI build](https://github.com/nRF24/RF24/actions/workflows/build_arduino.yml/badge.svg)](https://github.com/nRF24/RF24/actions/workflows/build_arduino.yml)
-[![Linux build](https://github.com/nRF24/RF24/actions/workflows/build_linux.yml/badge.svg)](https://github.com/nRF24/RF24/actions/workflows/build_linux.yml)
-[![PlatformIO build](https://github.com/nRF24/RF24/actions/workflows/build_platformIO.yml/badge.svg)](https://github.com/nRF24/RF24/actions/workflows/build_platformIO.yml)
-[![RP2xxx build](https://github.com/nRF24/RF24/actions/workflows/build_rp2xxx.yml/badge.svg)](https://github.com/nRF24/RF24/actions/workflows/build_rp2xxx.yml)
-[![Documentation Status](https://readthedocs.org/projects/rf24/badge/?version=latest)](https://rf24.readthedocs.io/en/latest/?badge=latest)
+# RF24 – ESP32 (ESP-IDF) adaptation
 
-# See http://nRF24.github.io/RF24 for all documentation
+This repository is the [RF24](https://github.com/nRF24/RF24) library **adapted for ESP32 (ESP-IDF)**. It provides the NRF24L01 driver as an ESP-IDF component.
 
-## Having problems?
+- **Used by:** [project-esp32-embedsyst-cpp_ble-jammer-nrf24l01](https://github.com/AntonBronnfjell/project-esp32-embedsyst-cpp_ble-jammer-nrf24l01) (included as a submodule).
+- **Original:** [nRF24/RF24](https://github.com/nRF24/RF24).
 
-Please read our **[solutions to common problems](COMMON_ISSUES.md)**. If that doesn't help, then open an issue describing your problem with as much detail as possible.
+## ESP-IDF integration
 
-### Want to contribute?
-
-Awesome! However, please check our [contributing guidelines](CONTRIBUTING.md) before opening a pull request.
+- Component name: **RF24** (use `REQUIRES RF24` in your app’s `CMakeLists.txt`).
+- ESP-IDF-specific code lives in **utility/esp_idf/** (SPI, GPIO, compatibility, interrupts). The root `CMakeLists.txt` registers the component with `idf_component_register`.
